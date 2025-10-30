@@ -1,0 +1,1 @@
+pnpm --filter @repo/web remove @repo/email
