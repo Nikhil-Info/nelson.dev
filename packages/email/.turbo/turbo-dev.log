@@ -1,0 +1,76 @@
+
+> @repo/email@0.0.0 dev /Users/nandini/Downloads/nelsonlai.dev/packages/email
+> email dev --port 3002 --dir src/templates
+
+[92m    React Email 4.3.2[39m
+    Running preview at:          http://localhost:3002
+
+[?25l[1G[1G  [36m⠋[39m Getting react-email preview server ready...
+[1G[0K[1A[0K  [36m⠙[39m Getting react-email preview server ready...
+[1G[0K[1A[0K  [36m⠹[39m Getting react-email preview server ready...
+[1G[0K[1A[0K[?25h  [32m✔[39m Ready in 1.6s
+
+[?25l  [36m⠋[39m Rendering email template comment.tsx
+[?25l  [36m⠋[39m Rendering email template reply.tsx
+[2K[1G[1A[2K[1G  [36m⠙[39m Rendering email template comment.tsx
+[2K[1G[1A[2K[1G  [36m⠙[39m Rendering email template reply.tsx
+[2K[1G[1A[2K[1G  [36m⠹[39m Rendering email template comment.tsx
+[2K[1G[1A[2K[1G  [36m⠹[39m Rendering email template reply.tsx
+[2K[1G[1A[2K[1G  [36m⠸[39m Rendering email template comment.tsx
+[2K[1G[1A[2K[1G  [36m⠸[39m Rendering email template reply.tsx
+[2K[1G[1A[2K[1G  [36m⠼[39m Rendering email template comment.tsx
+[2K[1G[1A[2K[1G  [36m⠼[39m Rendering email template reply.tsx
+[2K[1G[1A[2K[1G  [36m⠴[39m Rendering email template comment.tsx
+[2K[1G[1A[2K[1G  [36m⠴[39m Rendering email template reply.tsx
+[2K[1G[1A[2K[1G  [36m⠦[39m Rendering email template comment.tsx
+[2K[1G[1A[2K[1G  [36m⠦[39m Rendering email template reply.tsx
+[2K[1G[1A[2K[1G  [36m⠧[39m Rendering email template comment.tsx
+[2K[1G[1A[2K[1G  [36m⠧[39m Rendering email template reply.tsx
+[2K[1G[1A[2K[1G  [36m⠇[39m Rendering email template comment.tsx
+[2K[1G[1A[2K[1G  [36m⠇[39m Rendering email template reply.tsx
+[2K[1G[1A[2K[1G  [36m⠏[39m Rendering email template comment.tsx
+[2K[1G[1A[2K[1G  [36m⠏[39m Rendering email template reply.tsx
+[2K[1G[1A[2K[1G  [36m⠋[39m Rendering email template comment.tsx
+[2K[1G[1A[2K[1G  [36m⠋[39m Rendering email template reply.tsx
+[2K[1G[1A[2K[1G  [36m⠙[39m Rendering email template comment.tsx
+[2K[1G[1A[2K[1G  [36m⠙[39m Rendering email template reply.tsx
+[2K[1G[1A[2K[1G  [36m⠹[39m Rendering email template comment.tsx
+[2K[1G[1A[2K[1G  [36m⠹[39m Rendering email template reply.tsx
+[2K[1G[1A[2K[1G  [36m⠸[39m Rendering email template comment.tsx
+[2K[1G[1A[2K[1G  [36m⠸[39m Rendering email template reply.tsx
+[2K[1G[1A[2K[1G  [36m⠼[39m Rendering email template comment.tsx
+[2K[1G[1A[2K[1G  [36m⠼[39m Rendering email template reply.tsx
+[2K[1G[1A[2K[1G  [36m⠴[39m Rendering email template comment.tsx
+[2K[1G[1A[2K[1G  [36m⠴[39m Rendering email template reply.tsx
+[2K[1G[1A[2K[1G  [36m⠦[39m Rendering email template comment.tsx
+[2K[1G[1A[2K[1G  [36m⠦[39m Rendering email template reply.tsx
+[2K[1G[1A[2K[1G  [36m⠧[39m Rendering email template comment.tsx
+[2K[1G[1A[2K[1G  [36m⠧[39m Rendering email template reply.tsx
+[2K[1G[1A[2K[1G  [36m⠇[39m Rendering email template comment.tsx
+[2K[1G[1A[2K[1G  [36m⠇[39m Rendering email template reply.tsx
+[2K[1G[1A[2K[1G  [36m⠏[39m Rendering email template comment.tsx
+[2K[1G[1A[2K[1G  [36m⠏[39m Rendering email template reply.tsx
+[2K[1G[1A[2K[1G  [36m⠋[39m Rendering email template comment.tsx
+[2K[1G[1A[2K[1G  [36m⠋[39m Rendering email template reply.tsx
+[2K[1G[1A[2K[1G  [36m⠙[39m Rendering email template comment.tsx
+[2K[1G[1A[2K[1G  [36m⠙[39m Rendering email template reply.tsx
+[2K[1G[1A[2K[1G  [36m⠹[39m Rendering email template comment.tsx
+[2K[1G[1A[2K[1G  [36m⠹[39m Rendering email template reply.tsx
+[2K[1G[1A[2K[1G  [36m⠸[39m Rendering email template comment.tsx
+[2K[1G[1A[2K[1G  [36m⠸[39m Rendering email template reply.tsx
+[2K[1G[1A[2K[1G  [36m⠼[39m Rendering email template comment.tsx
+[2K[1G[1A[2K[1G  [36m⠼[39m Rendering email template reply.tsx
+[2K[1G[1A[2K[1G  [36m⠴[39m Rendering email template comment.tsx
+[2K[1G[1A[2K[1G  [36m⠴[39m Rendering email template reply.tsx
+[2K[1G[1A[2K[1G  [36m⠦[39m Rendering email template comment.tsx
+[2K[1G[1A[2K[1G  [36m⠦[39m Rendering email template reply.tsx
+[2K[1G[1A[2K[1G  [36m⠧[39m Rendering email template comment.tsx
+[2K[1G[1A[2K[1G  [36m⠧[39m Rendering email template reply.tsx
+[2K[1G[1A[2K[1G  [36m⠇[39m Rendering email template comment.tsx
+[2K[1G[1A[2K[1G  [36m⠇[39m Rendering email template reply.tsx
+[2K[1G[1A[2K[1G[?25h  [32m✔[39m Successfully rendered comment.tsx in [31m3536ms[39m
+[2K[1G[1A[2K[1G  [36m⠏[39m Rendering email template reply.tsx
+[2K[1G[1A[2K[1G  [36m⠋[39m Rendering email template reply.tsx
+[2K[1G[1A[2K[1G  [36m⠙[39m Rendering email template reply.tsx
+[2K[1G[1A[2K[1G  [36m⠹[39m Rendering email template reply.tsx
+[2K[1G[1A[2K[1G[?25h  [32m✔[39m Successfully rendered reply.tsx in [31m6019ms[39m

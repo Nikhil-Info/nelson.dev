@@ -1,0 +1,37 @@
+{
+  "name": "@repo/i18n",
+  "version": "0.0.0",
+  "license": "MIT",
+  "author": "Nelson Lai <me@nelsonlai.dev> (https://github.com/nelsonlaidev/)",
+  "type": "module",
+  "exports": {
+    "./middleware": "./src/middleware.ts",
+    "./request": "./src/request.ts",
+    "./routing": "./src/routing.ts",
+    "./messages/*.json": "./src/messages/*.json"
+  },
+  "scripts": {
+    "clean": "rm -rf .turbo",
+    "lint": "eslint . --max-warnings 0",
+    "lint:fix": "eslint --fix .",
+    "type-check": "tsc --noEmit"
+  },
+  "lint-staged": {
+    "*.{js,mjs,jsx,ts,mts,tsx}": "eslint --fix",
+    "*": [
+      "prettier --write --ignore-unknown",
+      "cspell --no-progress --no-summary --no-must-find-files --unique"
+    ]
+  },
+  "devDependencies": {
+    "@nelsonlaidev/eslint-config": "2.3.1",
+    "@nelsonlaidev/typescript-config": "1.0.0",
+    "@types/react": "19.2.2",
+    "next": "16.0.1",
+    "next-intl": "4.4.0"
+  },
+  "peerDependencies": {
+    "next": ">=15.0.0",
+    "next-intl": ">=4.0.0"
+  }
+}
