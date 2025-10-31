@@ -2,7 +2,8 @@ import { Link } from '@repo/ui/components/link'
 import { LinkIcon } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 
-import { SOCIAL_LINKS } from '@/config/links'
+import { socialLinks } from '@/config/socialLinks'
+import { CustomIcon } from '@/components/home/socialLinks/custom-icons'
 
 const Connect = () => {
   const t = useTranslations()
@@ -14,17 +15,19 @@ const Connect = () => {
         <h2 className='text-sm'>{t('homepage.about-me.connect')}</h2>
       </div>
       <div className='flex flex-col gap-4 px-2'>
-        {SOCIAL_LINKS.map((link) => {
-          const { href, title, icon } = link
+        {socialLinks.map((link) => {
+          const { url, name, icon } = link
 
           return (
             <Link
-              key={href}
-              href={href}
+              key={url}
+              href={url}
               className='flex w-fit items-center gap-3 text-muted-foreground transition-colors hover:text-foreground [&>svg]:size-4.5'
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              {icon}
-              <h3>{title}</h3>
+              <CustomIcon name={icon} size={18} />
+              <h3>{name}</h3>
             </Link>
           )
         })}

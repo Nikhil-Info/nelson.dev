@@ -15,7 +15,8 @@ import { CodeIcon, CommandIcon, LinkIcon, LogInIcon, LogOutIcon, UserCircleIcon 
 import { useTranslations } from 'next-intl'
 import { Fragment, useCallback, useEffect, useState } from 'react'
 
-import { SOCIAL_LINKS } from '@/config/links'
+import { socialLinks } from '@/config/socialLinks'
+import { CustomIcon } from '@/components/home/socialLinks/custom-icons'
 import { useCopyToClipboard } from '@/hooks/use-copy-to-clipboard'
 import { useSignOut } from '@/hooks/use-sign-out'
 import { useSession } from '@/lib/auth-client'
@@ -130,11 +131,11 @@ const CommandMenu = () => {
     }
   ]
 
-  const socialActions: CommandAction[] = SOCIAL_LINKS.map((link) => ({
-    title: link.title,
-    icon: link.icon,
+  const socialActions: CommandAction[] = socialLinks.map((link) => ({
+    title: link.name,
+    icon: <CustomIcon name={link.icon} size={16} />,
     onSelect: () => {
-      openExternalLink(link.href)
+      openExternalLink(link.url)
     }
   }))
 

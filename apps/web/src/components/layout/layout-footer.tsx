@@ -10,6 +10,8 @@ import { useGitHubStat } from '@/hooks/queries/stat.query'
 import LocaleSwitcher from './locale-switcher'
 import NowPlaying from './now-playing'
 
+import SocialLinks from '../home/socialLinks/socialLinks'
+
 const LayoutFooter = () => {
   const { isSuccess, isLoading, isError, data } = useGitHubStat()
   const t = useTranslations()
@@ -19,7 +21,7 @@ const LayoutFooter = () => {
       <NowPlaying />
       <div className='mt-12 grid grid-cols-2 sm:grid-cols-3'>
         {FOOTER_LINKS.map((list) => (
-          <div key={list.id} className='mb-10 flex flex-col items-start gap-4 pr-4'>
+          <div key={list.id} className='mb-6 flex flex-col items-start gap-4 pr-4'>
             {list.links.map((link) => {
               const { href, labelKey } = link
 
@@ -32,10 +34,16 @@ const LayoutFooter = () => {
           </div>
         ))}
       </div>
+
       <div className='mt-20 flex flex-col gap-4'>
-        <LocaleSwitcher />
+        {/* Same row: LocaleSwitcher on left, SocialLinks on right */}
+        <div className='flex items-center justify-between'>
+          <LocaleSwitcher />
+          <SocialLinks />
+        </div>
+
         <div className='flex items-center justify-between text-sm'>
-          <div>&copy; {new Date().getFullYear()} Nelson Lai</div>
+          <div>&copy; {new Date().getFullYear()} Nikh9l</div>
           <Link
             href='https://nelsonlai.link/s/github-portfolio'
             className='flex items-center justify-center overflow-hidden rounded-md border'
