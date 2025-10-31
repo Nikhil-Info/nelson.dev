@@ -107,7 +107,15 @@
       "unsubscribe": "Unsubscribe",
       "users": "Users",
       "uses": "Uses",
-      "youtube": "YouTube"
+      "youtube": "YouTube",
+      "publications": "Publications",
+      "resume": "Resume",
+      "lifeevents": "Life Events",
+      "bucketlist": "Bucket List",
+      "changelog": "Changelog",
+      "connections": "Connections",
+      "terms-of-service": "Terms of Service",
+      "privacy-policy": "Privacy Policy"
     },
     "like": "Like",
     "likes": "{count, plural, =1 {# like} other {# likes}}",
