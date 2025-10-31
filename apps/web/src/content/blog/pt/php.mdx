@@ -1,0 +1,154 @@
+---
+title: Notas de estudo de PHP
+date: '2025-05-18T00:00:00Z'
+modifiedTime: '2025-08-09T00:00:00Z'
+summary: Conceitos básicos sobre PHP como comentários, Echo, variáveis, operadores aritméticos
+---
+
+## Introdução do PHP
+
+PHP (nome completo: PHP: _Hypertext Preprocessor_) é uma linguagem de script de computador de código aberto de propósito geral, especialmente adequada para desenvolvimento web e embutida em HTML. A sintaxe do PHP toma emprestado características de linguagens de computador populares como C, Java e Perl, e é fácil de aprender para programadores em geral. O principal objetivo do PHP é permitir que desenvolvedores web escrevam rapidamente páginas dinâmicas, mas o PHP também é usado em muitas outras áreas.
+
+A extensão de arquivo PHP é `.php`, por exemplo `index.php`. Como mencionado acima, `PHP` pode embutir diretamente `HTML`.
+
+## Uso
+
+Quando o navegador lê `<?php` de cima para baixo, ele executa `PHP` e termina com `?>`. Por exemplo:
+
+```php
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PHP</title>
+    </head>
+    <body>
+        <?php
+            echo "Esta é uma frase."
+        ?>
+    </body>
+</html>
+```
+
+## Precauções
+
+Em `PHP`, não há outro `HTML` após a instrução `PHP` ser concluída. É recomendado não terminar com `?>`. Isso causará problemas se for fechado.
+
+```php
+<?php
+    echo "Sem HTML após o PHP terminar";
+```
+
+## Comentários do PHP
+
+Quase a maioria das linguagens de programação web pode comentar, e a forma **de linha única** do `PHP` é `//` e a forma **multilinha** é `/* Algum texto aqui */`.
+
+```php
+<?php
+    echo = "Este é um comentário de linha única"; // Eu sou um comentário de linha única
+    echo = "Este é um comentário multilinha";
+    /*
+        Eu sou um comentário multilinha
+        Segunda linha
+    */
+?>
+```
+
+## Echo
+
+A sintaxe mais simples no `PHP` é `Echo`. O conteúdo do `Echo` deve estar entre aspas duplas `""` ou aspas simples `''`. Cada sintaxe deve terminar com um ponto e vírgula `;`.
+
+```php
+<?php
+    echo "Este é o exemplo usando aspas duplas.";
+    echo 'Este é o exemplo usando aspas simples.';
+?>
+```
+
+O conteúdo no `Echo` também pode usar sintaxe `HTML`. Por exemplo, usei `<br/>` aqui, para que a linha possa ser quebrada.
+
+```php
+<?php
+    echo "Esta é a primeira frase<br/>";
+    echo "Esta é a segunda frase";
+    echo "<a href=\"https://example.com\">aqui está um link</a>";
+?>
+```
+
+## Variável
+
+Podemos atribuir um valor a uma variável para facilitar a escrita de `PHP`, similar ao `Javascript`. Usaremos o cifrão `$`.
+
+```php
+<?php
+    $valor = "Eu sou um valor";
+?>
+```
+
+Há algumas regras a seguir quando nomeamos variáveis.
+
+<Tabela
+  headers={['Exemplo', 'Descrição', 'Regras']}
+  rows={[
+    ['$valor', 'Minúsculas', '✅'],
+    ['$Valor', 'Maiúsculas', '✅'],
+    ['$_valor', 'Sublinhado', '✅'],
+    ['$1valor', 'Começar com número', '❌']
+  ]}
+/>
+
+Há uma diferença entre `maiúsculas` e `minúsculas` nos nomes de variáveis. Variáveis em maiúsculas não são iguais a variáveis em minúsculas.
+
+## Dicas para nomear variáveis
+
+### Camel case
+
+Quando um nome de variável e um nome de função são vinculados por duas ou mais palavras para formar uma palavra de identificação única, o uso de "camel case" pode aumentar a legibilidade de variáveis e funções. Porque não podemos ter `espaços` em variáveis.
+
+```php
+<?php
+    $umMaisUmResposta = 1 + 1;
+    echo $umMaisUmResposta;
+?>
+```
+
+### Snake case
+
+Snake case (como snake_case) refere-se a um estilo de escrita no qual cada espaço é substituído por um caractere de sublinhado ( \_ ) e a primeira letra de cada palavra é escrita em minúsculas.
+
+```php
+<?php
+    $um_mais_um_resposta = 1 + 1;
+    echo $um_mais_um_resposta;
+?>
+```
+
+## Operador de string
+
+Existem dois operadores de string. O primeiro é o operador de concatenação ("."), que retorna a string concatenada de seus argumentos esquerdo e direito. O segundo é o operador de atribuição de concatenação (".="), que anexa o argumento direito ao argumento esquerdo.
+
+```php
+<?php
+    echo "Isto" . " " . "é" . " " . "operadores" . " " . "de" . " " . "string" . ".";
+?>
+```
+
+## Operador aritmético
+
+```php
+<?php
+    $valor0 = 1.5 // Float
+    $valor1 = 1 + 1 // Mais
+    $valor2 = 1 - 1 // Menos
+    $valor3 = 1 * 1 // Vezes
+    $valor4 = 1 / 1 // Dividir
+    $valor5 = 12 / 5 // Dividir | Divisão incompleta se tornará float, o que é diferente de outras linguagens de programação, php calculará o resto
+    $valor6 = 3 % 5 // Pegar o resto
+?>
+```
+
+## Referências
+
+- [PHP - Wikipedia, a enciclopédia livre](https://en.wikipedia.org/wiki/PHP)
+- [Camel case - Wikipedia, a enciclopédia livre](https://en.wikipedia.org/wiki/Camel_case)
+- [Snake case - Wikipedia, a enciclopédia livre](https://en.wikipedia.org/wiki/Snake_case)
+- [Operadores de string](https://www.php.net/manual/en/language.operators.string.php)

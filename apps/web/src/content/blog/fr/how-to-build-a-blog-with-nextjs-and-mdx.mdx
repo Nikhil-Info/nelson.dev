@@ -1,0 +1,323 @@
+---
+title: Comment créer un blog avec Next.js et MDX
+date: '2022-08-22T00:00:00Z'
+modifiedTime: '2025-09-16T15:11:03Z'
+summary: Créer un blog avec Next.js est très facile !
+---
+
+## Préface
+
+Les packages à utiliser :
+
+- [next](https://github.com/vercel/next.js) Framework Next.js
+- [next-mdx-remote](https://github.com/hashicorp/next-mdx-remote) Gestion et chargement du contenu MDX
+- [gray-matter](https://github.com/jonschlinkert/gray-matter) Analyse du front matter dans Markdown
+
+Le dépôt pour ce tutoriel :
+
+https://github.com/nelsonlaidev/nextjs-mdx-blog
+
+## Démo
+
+[Démo en ligne](https://nelsonlai-nextjs-mdx-blog.vercel.app)
+
+<Video src='/videos/blog/how-to-build-a-blog-with-nextjs-and-mdx/demo.mp4' width={1920} height={1080} />
+
+## Comment créer un blog
+
+D'abord, nous créons le projet Next.js avec la commande suivante :
+
+```bash title='Terminal'
+yarn create next-app nextjs-mdx-blog
+```
+
+Ensuite, créez les fichiers suivants :
+
+- `components/layout.jsx` - Encapsuler tous les composants dans un conteneur (optionnel, juste pour le style)
+- `date/blog/*.mdx` - Articles de blog
+- `lib/format-date.js` - Formater la date comme `DD mois YYYY`
+- `pages/blog/[slug].jsx` - Page d'article, utilisant [les routes dynamiques](https://nextjs.org/docs/pages/building-your-application/routing/dynamic-routes)
+
+<TreeView
+  defaultExpandedValue={['components', 'data', 'data/blog', 'lib', 'pages', 'pages/blog']}
+  collection={{
+    id: 'ROOT',
+    name: '',
+    children: [
+      {
+        id: 'components',
+        name: 'components',
+        children: [{ id: 'components/layout.jsx', name: 'layout.jsx' }]
+      },
+      {
+        id: 'data',
+        name: 'data',
+        children: [
+          {
+            id: 'data/blog',
+            name: 'blog',
+            children: [
+              { id: 'data/blog/markdown.mdx', name: 'markdown.mdx' },
+              { id: 'data/blog/nextjs.mdx', name: 'nextjs.mdx' },
+              { id: 'data/blog/react.mdx', name: 'react.mdx' }
+            ]
+          }
+        ]
+      },
+      {
+        id: 'lib',
+        name: 'lib',
+        children: [
+          { id: 'lib/format-date.js', name: 'format-date.js' },
+          { id: 'lib/mdx.js', name: 'mdx.js' }
+        ]
+      },
+      {
+        id: 'pages',
+        name: 'pages',
+        children: [
+          {
+            id: 'pages/blog',
+            name: 'blog',
+            children: [{ id: 'pages/blog/[slug].jsx', name: '[slug].jsx' }]
+          }
+        ]
+      }
+    ]
+  }}
+/>
+
+### Comment gérer les fichiers Markdown
+
+D'abord `const root{:js}` - le répertoire racine, et la méthode `process.cwd(){:js}` retourne le répertoire de travail actuel du processus Node.js.
+
+```js title='lib/mdx.js'
+const root = process.cwd()
+```
+
+Une autre variable `POSTS_PATH{:.entity.name.constant}` pour le chemin où les fichiers d'articles sont stockés.
+
+```js title='lib/mdx.js'
+import path from 'path'
+
+const POSTS_PATH = path.join(root, 'data', 'blog') // [!code highlight]
+// Sortie : A:/nextjs-mdx-blog/data/blog
+```
+
+Ensuite, utilisez fs pour lire le contenu de ce répertoire, c'est-à-dire tous les noms de fichiers sous `data/blog`.
+
+```js title='lib/mdx.js'
+import fs from 'fs'
+
+export const allSlugs = fs.readdirSync(POSTS_PATH)
+// Sortie : ['markdown.mdx', 'nextjs.mdx', 'react.mdx']
+```
+
+Ensuite, écrivez une fonction pour supprimer l'extension de fichier, qui sera utilisée plus tard.
+
+```js title='lib/mdx.js'
+export const formatSlug = (slug) => slug.replace(/\.mdx$/, '')
+/*
+ * Exemple : formatSlug('markdown.mdx')
+ * Sortie : 'markdown'
+ */
+```
+
+L'étape suivante consiste à obtenir le contenu de l'article par slug.
+
+```js title='lib/mdx.js'
+export const getPostBySlug = async (slug) => {
+  const postFilePath = path.join(POSTS_PATH, `${slug}.mdx`)
+  // Sortie : A:/nextjs-mdx-blog/data/blog/slug.mdx
+  const source = fs.readFileSync(postFilePath)
+  // Retourne le contenu du fichier
+
+  const { content, data } = matter(source)
+  /*
+   * Exemple :
+   *  ---
+   *  title: Bonjour
+   *  slug: home
+   *  ---
+   *  <h1>Bonjour le monde !</h1>
+   *
+   * Retour :
+   *  {
+   *    content: '<h1>Bonjour le monde !</h1>',
+   *    data: {
+   *      title: 'Bonjour',
+   *      slug: 'home'
+   *    }
+   *  }
+   */
+
+  const mdxSource = await serialize(content)
+  // Passe le contenu à sérialiser (next-mdx-remote) pour traitement
+
+  const frontMatter = {
+    ...data,
+    slug
+  }
+  // Met également le slug dans le front matter, qui sera utilisé plus tard
+
+  return {
+    source: mdxSource,
+    frontMatter
+  }
+}
+```
+
+Ensuite, vous pouvez obtenir tous les articles à afficher sur la page d'accueil.
+
+```js title='lib/mdx.js'
+export const getAllPosts = () => {
+  const frontMatter = []
+
+  allSlugs.forEach((slug) => {
+    const source = fs.readFileSync(path.join(POSTS_PATH, slug), 'utf-8')
+
+    const { data } = matter(source)
+
+    frontMatter.push({
+      ...data,
+      slug: formatSlug(slug),
+      date: new Date(data.date).toISOString()
+    })
+  })
+
+  return frontMatter.sort((a, b) => dateSortDesc(a.date, b.date))
+}
+
+// Trié par date en ordre décroissant
+const dateSortDesc = (a, b) => {
+  if (a > b) return -1
+  if (a < b) return 1
+
+  return 0
+}
+```
+
+### Formatage de la date
+
+```js title='lib/format-date.js'
+export const formatDate = (date) =>
+  new Date(date).toLocaleDateString('fr', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  })
+/*
+ * formatDate('2022-08-21T00:00:00Z')
+ * Sortie : '21 août 2022'
+ */
+```
+
+### Page d'accueil
+
+```jsx title='pages/index.jsx'
+import { formatDate } from '../lib/format-date'
+import { getAllPosts } from '../lib/mdx'
+
+import Link from 'next/link'
+
+export default function Home({ posts }) {
+  return (
+    <>
+      <h1 className='mb-8 text-6xl font-bold'>Blog</h1>
+      <hr className='my-8' />
+      <ul className='flex flex-col gap-3'>
+        {posts.map(({ slug, title, summary, date }) => (
+          <li key={slug}>
+            <Link href={`/blog/${slug}`}>
+              <a className='block rounded-lg border border-solid border-gray-300 p-6 shadow-md'>
+                <div className='flex justify-between'>
+                  <h2>{title}</h2>
+                  <time dateTime={date}>{formatDate(date)}</time>
+                </div>
+                <p className='mt-4'>{summary}</p>
+              </a>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </>
+  )
+}
+
+// Utilisez getStaticProps pour obtenir tous les articles
+export const getStaticProps = async () => {
+  const posts = getAllPosts()
+
+  return {
+    props: {
+      posts
+    }
+  }
+}
+```
+
+### Page d'article
+
+```jsx title='pages/[slug].jsx'
+import { formatDate } from '../../lib/format-date'
+import { allSlugs, formatSlug, getPostBySlug } from '../../lib/mdx'
+
+import { MDXRemote } from 'next-mdx-remote'
+
+export default function Blog({ post }) {
+  const { title, date } = post.frontMatter
+
+  return (
+    <div>
+      <h1 className='mb-2 text-6xl font-bold'>{title}</h1>
+      <time dateTime={date} className='text-lg font-medium'>
+        {formatDate(date)}
+      </time>
+      <hr className='my-8' />
+      <article className='prose max-w-none'>
+        <MDXRemote {...post.source} />
+      </article>
+    </div>
+  )
+}
+
+export const getStaticProps = async ({ params }) => {
+  const post = await getPostBySlug(params.slug)
+
+  return {
+    props: {
+      post
+    }
+  }
+}
+
+export const getStaticPaths = async () => {
+  const paths = allSlugs.map((slug) => ({
+    params: {
+      slug: formatSlug(slug)
+    }
+  }))
+  /*
+   * Sortie paths :
+   *   [
+   *     { params: { slug: 'markdown' } },
+   *     { params: { slug: 'nextjs' } },
+   *     { params: { slug: 'react' } }
+   *   ]
+   */
+
+  return {
+    paths,
+    fallback: false
+  }
+}
+```
+
+De cette façon, un blog simple est terminé.
+
+## Liens utiles
+
+- [getStaticPaths](https://nextjs.org/docs/pages/building-your-application/data-fetching/get-static-paths)
+- [getStaticProps](https://nextjs.org/docs/pages/building-your-application/data-fetching/get-static-props)
+- [routes dynamiques](https://nextjs.org/docs/pages/building-your-application/routing/dynamic-routes)
+- [mdx](https://mdxjs.com/)
