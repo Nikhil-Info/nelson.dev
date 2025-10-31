@@ -1,13 +1,8 @@
 import { ORPCError } from '@orpc/client'
-import { and, asc, comments, count, desc, eq, gt, isNotNull, isNull, lt, ne, unsubscribes, votes } from '@repo/db'
-// import { CommentEmailTemplate, ReplyEmailTemplate } from '@repo/email'
-import { env } from '@repo/env'
+import { and, asc, comments, count, desc, eq, gt, isNotNull, isNull, lt, ne, votes } from '@repo/db'
 import { getLocale } from 'next-intl/server'
 
-import { IS_PRODUCTION } from '@/lib/constants'
 import { getPostBySlug } from '@/lib/content'
-import { sendEmail } from '@/lib/resend'
-import { generateReplyUnsubToken } from '@/lib/unsubscribe'
 import { getDefaultImage } from '@/utils/get-default-image'
 
 import { protectedProcedure, publicProcedure } from '../root'
@@ -112,11 +107,6 @@ export const createComment = protectedProcedure
 
     if (!post) throw new ORPCError('NOT_FOUND', { message: 'Blog post not found' })
 
-    const commenterName = user.name
-    const commenterImage = user.image ?? getDefaultImage(user.id)
-    const postTitle = post.title
-    const postUrl = `https://nelsonlai.dev/blog/${input.slug}`
-
     const comment = await context.db.transaction(async (tx) => {
       const [c] = await tx
         .insert(comments)
@@ -132,74 +122,6 @@ export const createComment = protectedProcedure
         throw new ORPCError('INTERNAL_SERVER_ERROR', {
           message: 'Failed to create comment'
         })
-      }
-
-      // Notify the author of the blog post via email
-      if (IS_PRODUCTION && !input.parentId && user.role === 'user') {
-        if (env.AUTHOR_EMAIL) {
-          await sendEmail({
-            to: env.AUTHOR_EMAIL,
-            subject: 'New comment on your blog post',
-            react: CommentEmailTemplate({
-              comment: input.content,
-              commenterName,
-              commenterImage,
-              commentIdentifier: `comment=${c.id}`,
-              date: input.date,
-              postTitle,
-              postUrl
-            })
-          })
-        } else {
-          console.warn('AUTHOR_EMAIL is not set. Skipping email sending.')
-        }
-      }
-
-      // Notify the parent comment owner via email
-      if (IS_PRODUCTION && input.parentId) {
-        const parentComment = await tx.query.comments.findFirst({
-          where: eq(comments.id, input.parentId),
-          with: {
-            user: true
-          }
-        })
-
-        // Don't notify if the reply is to own comment or the parent comment user is "ghost"
-        if (parentComment && parentComment.user.email !== user.email && parentComment.user.id !== 'ghost') {
-          const unsubscribedFromAllReplies = await tx.query.unsubscribes.findFirst({
-            where: and(eq(unsubscribes.userId, parentComment.userId), eq(unsubscribes.scope, 'comment_replies_user'))
-          })
-
-          const unsubscribedFromThisComment = await tx.query.unsubscribes.findFirst({
-            where: and(
-              eq(unsubscribes.commentId, input.parentId),
-              eq(unsubscribes.userId, parentComment.userId),
-              eq(unsubscribes.scope, 'comment_replies_comment')
-            )
-          })
-
-          // Don't send notification email if the user
-          // has unsubscribed from all replies or this specific comment's replies
-          if (unsubscribedFromAllReplies || unsubscribedFromThisComment) return c
-
-          const token = await generateReplyUnsubToken(parentComment.userId, input.parentId)
-
-          await sendEmail({
-            to: parentComment.user.email,
-            subject: `New reply to your comment on "${post.title}"`,
-            react: ReplyEmailTemplate({
-              reply: input.content,
-              replierName: commenterName,
-              replierImage: commenterImage,
-              comment: parentComment.body,
-              replierIdentifier: `comment=${input.parentId}&reply=${c.id}`,
-              date: input.date,
-              postTitle,
-              postUrl,
-              unsubscribeUrl: `https://nelsonlai.dev/unsubscribe?token=${token}`
-            })
-          })
-        }
       }
 
       return c
