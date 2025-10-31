@@ -7,10 +7,10 @@ import { useTranslations } from 'next-intl'
 import { FOOTER_LINKS } from '@/config/links'
 import { useGitHubStat } from '@/hooks/queries/stat.query'
 
+import SocialLinks from '../home/socialIcons/social-media'
+
 import LocaleSwitcher from './locale-switcher'
 import NowPlaying from './now-playing'
-
-import SocialLinks from '../home/socialLinks/socialLinks'
 
 const LayoutFooter = () => {
   const { isSuccess, isLoading, isError, data } = useGitHubStat()

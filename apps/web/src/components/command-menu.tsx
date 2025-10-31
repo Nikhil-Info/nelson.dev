@@ -15,8 +15,7 @@ import { CodeIcon, CommandIcon, LinkIcon, LogInIcon, LogOutIcon, UserCircleIcon 
 import { useTranslations } from 'next-intl'
 import { Fragment, useCallback, useEffect, useState } from 'react'
 
-import { socialLinks } from '@/config/socialLinks'
-import { CustomIcon } from '@/components/home/socialLinks/custom-icons'
+import { CustomIcon } from '@/components/home/socialIcons/custom-icons'
 import { useCopyToClipboard } from '@/hooks/use-copy-to-clipboard'
 import { useSignOut } from '@/hooks/use-sign-out'
 import { useSession } from '@/lib/auth-client'
@@ -99,19 +98,19 @@ const CommandMenu = () => {
     ? [
         {
           title: t('common.labels.account'),
-          icon: <UserCircleIcon />,
+          icon: <UserCircleIcon className='size-4' />,
           onSelect: handleAccountNavigate
         },
         {
           title: t('common.sign-out'),
-          icon: <LogOutIcon />,
+          icon: <LogOutIcon className='size-4' />,
           onSelect: handleSignOut
         }
       ]
     : [
         {
           title: t('common.sign-in'),
-          icon: <LogInIcon />,
+          icon: <LogInIcon className='size-4' />,
           onSelect: handleSignIn
         }
       ]
@@ -119,25 +118,70 @@ const CommandMenu = () => {
   const generalActions: CommandAction[] = [
     {
       title: t('command-menu.actions.copy-link'),
-      icon: <LinkIcon />,
+      icon: <LinkIcon className='size-4' />,
       onSelect: copyCurrentUrl
     },
     {
       title: t('command-menu.actions.source-code'),
-      icon: <CodeIcon />,
+      icon: <CodeIcon className='size-4' />,
       onSelect: () => {
         openExternalLink('https://github.com/nelsonlaidev/nelsonlai.dev')
       }
     }
   ]
 
-  const socialActions: CommandAction[] = socialLinks.map((link) => ({
-    title: link.name,
-    icon: <CustomIcon name={link.icon} size={16} />,
-    onSelect: () => {
-      openExternalLink(link.url)
+  // Create social actions using translated names from the social.links section
+  const socialActions: CommandAction[] = [
+    {
+      title: t('social.links.github.name'),
+      icon: <CustomIcon name='github' size={16} className='size-4 shrink-0' />,
+      onSelect: () => {
+        openExternalLink('https://github.com/nikh9l')
+      }
+    },
+    {
+      title: t('social.links.linkedin.name'),
+      icon: <CustomIcon name='linkedin' size={16} className='size-4 shrink-0' />,
+      onSelect: () => {
+        openExternalLink('https://linkedin.com/in/yourprofile')
+      }
+    },
+    {
+      title: t('social.links.twitter.name'),
+      icon: <CustomIcon name='twitter' size={16} className='size-4 shrink-0' />,
+      onSelect: () => {
+        openExternalLink('https://twitter.com/yourusername')
+      }
+    },
+    {
+      title: t('social.links.mastodon.name'),
+      icon: <CustomIcon name='mastodon' size={16} className='size-4 shrink-0' />,
+      onSelect: () => {
+        openExternalLink('https://mastodon.social/@yourhandle')
+      }
+    },
+    {
+      title: t('social.links.bluesky.name'),
+      icon: <CustomIcon name='bluesky' size={16} className='size-4 shrink-0' />,
+      onSelect: () => {
+        openExternalLink('https://bsky.app/profile/yourhandle.bsky.social')
+      }
+    },
+    {
+      title: t('social.links.codepen.name'),
+      icon: <CustomIcon name='codepen' size={16} className='size-4 shrink-0' />,
+      onSelect: () => {
+        openExternalLink('https://codepen.io/yourusername')
+      }
+    },
+    {
+      title: t('social.links.buymeacoffee.name'),
+      icon: <CustomIcon name='buymeacoffee' size={16} className='size-4 shrink-0' />,
+      onSelect: () => {
+        openExternalLink('https://buymeacoffee.com/yourusername')
+      }
     }
-  }))
+  ]
 
   const groups: CommandGroup[] = [
     { name: t('common.labels.account'), actions: accountActions },
@@ -154,7 +198,7 @@ const CommandMenu = () => {
         aria-label={t('command-menu.open-menu')}
         data-testid='command-menu-button'
       >
-        <CommandIcon />
+        <CommandIcon className='size-4' />
       </Button>
       <CommandDialog open={isOpen} onOpenChange={setIsOpen}>
         <CommandInput placeholder={t('command-menu.placeholder')} />
@@ -166,7 +210,7 @@ const CommandMenu = () => {
                 {group.actions.map((action) => (
                   <CommandItem key={action.title} onSelect={action.onSelect}>
                     {action.icon}
-                    {action.title}
+                    <span>{action.title}</span>
                   </CommandItem>
                 ))}
               </CommandGroup>

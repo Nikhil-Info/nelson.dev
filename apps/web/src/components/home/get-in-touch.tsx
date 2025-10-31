@@ -94,7 +94,7 @@ const GetInTouch = () => {
             width='16.8'
             height='18.2'
             viewBox='0 0 12 13'
-            className='fill-red-500'
+            className='fill-blue-300 dark:fill-blue-400'
             stroke='white'
             strokeWidth='1'
             xmlns='http://www.w3.org/2000/svg'
@@ -105,7 +105,9 @@ const GetInTouch = () => {
               d='M12 5.50676L0 0L2.83818 13L6.30623 7.86537L12 5.50676V5.50676Z'
             />
           </svg>
-          <span className='relative left-4 rounded-3xl bg-red-500 px-2 py-0.5 text-xs text-white'>Nelson</span>
+          <span className='relative left-4 rounded-3xl bg-blue-300 px-2 py-0.5 text-xs text-black dark:bg-blue-400 dark:text-white'>
+            Nikh9l
+          </span>
         </div>
       </div>
 
@@ -116,7 +118,7 @@ const GetInTouch = () => {
         <p className='text-zinc-800 dark:text-zinc-300'>{t('homepage.get-in-touch.description')}</p>
         <div className='my-8'>
           <a href='mailto:me@nelsonlai.dev' className='rounded-full bg-email-button px-4 py-2 text-sm text-white'>
-            me@nelsonlai.dev
+            me@nikh9l.dev
           </a>
         </div>
       </div>

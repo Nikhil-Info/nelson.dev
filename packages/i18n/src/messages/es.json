@@ -1,0 +1,328 @@
+{
+  "about": {
+    "description": "¡Hola! Soy Nikhil, un estudiante apasionado de desarrollo web creando proyectos innovadores con HTML, CSS y JavaScript. Explora mi portafolio, habilidades y viaje en la construcción de aplicaciones fáciles de usar. ¡Conectemos!"
+  },
+  "account": {
+    "account-created": "Cuenta creada",
+    "active-sessions": "Sesiones activas",
+    "avatar": "Avatar",
+    "description": "Gestiona tu cuenta.",
+    "display-name": "Nombre para mostrar",
+    "edit-name": "Editar nombre",
+    "edit-name-description": "Cambia tu nombre para mostrar. Este nombre se mostrará en tu perfil y comentarios.",
+    "email": "Correo electrónico",
+    "no-active-sessions": "No hay sesiones activas",
+    "profile": "Perfil",
+    "revoke-session": "Revocar",
+    "this-device": "Este dispositivo",
+    "update-avatar": "Actualizar avatar"
+  },
+  "admin": {
+    "page-header": {
+      "comments": {
+        "description": "Gestionar comentarios"
+      },
+      "users": {
+        "description": "Gestionar usuarios"
+      }
+    }
+  },
+  "blog": {
+    "comments": {
+      "author": "Autor",
+      "comments": "{count, plural, =1 {comentario} other {comentarios}}",
+      "copy-link": "Copiar enlace",
+      "dislike": "No me gusta",
+      "highlighted-comment": "Comentario destacado",
+      "newest": "Más reciente",
+      "no-comments": "No hay comentarios",
+      "oldest": "Más antiguo",
+      "open-menu": "Abrir menú",
+      "placeholder": "Deja un comentario",
+      "preview": "Vista previa",
+      "replies": "{count, plural, =1 {respuesta} other {respuestas}}",
+      "reply": "Responder",
+      "reply-to-comment": "Responder al comentario",
+      "send-comment": "Enviar comentario",
+      "sort-by": "Ordenar por",
+      "this-comment-has-been-deleted": "[Este comentario ha sido eliminado]",
+      "toggle-bold": "Alternar negrita",
+      "toggle-italic": "Alternar cursiva",
+      "toggle-strikethrough": "Alternar tachado",
+      "write": "Escribir"
+    },
+    "description": "Descubre mi sitio web y blog, donde comparto tutoriales, notas y experiencias como ingeniero full-stack. Comencé el desarrollo web como hobby en agosto de 2017. ¡Explora mi viaje!",
+    "footer": {
+      "edit-on-github": "Editar en GitHub",
+      "last-updated": "Última actualización: {date}"
+    },
+    "header": {
+      "published-on": "Publicado el",
+      "views": "Vistas",
+      "written-by": "Escrito por"
+    },
+    "like-this-post": "Me gusta esta publicación",
+    "on-this-page": "En esta página"
+  },
+  "command-menu": {
+    "actions": {
+      "copy-link": "Copiar enlace",
+      "source-code": "Código fuente"
+    },
+    "groups": {
+      "social": "Social"
+    },
+    "no-results": "No se encontraron resultados.",
+    "open-menu": "Abrir menú de comandos",
+    "placeholder": "Escribe un comando o busca"
+  },
+  "common": {
+    "cancel": "Cancelar",
+    "delete": "Eliminar",
+    "dialogs": {
+      "delete-comment": {
+        "description": "¿Estás seguro de que quieres eliminar este comentario? Esta acción no se puede deshacer.",
+        "title": "Eliminar un comentario"
+      }
+    },
+    "error": "Error",
+    "labels": {
+      "about": "Acerca de",
+      "account": "Cuenta",
+      "blog": "Blog",
+      "comment": "Comentario",
+      "comments": "Comentarios",
+      "dashboard": "Panel",
+      "facebook": "Facebook",
+      "general": "General",
+      "github": "GitHub",
+      "guestbook": "Libro de visitas",
+      "home": "Inicio",
+      "instagram": "Instagram",
+      "links": "Enlaces",
+      "privacy": "Política de privacidad",
+      "projects": "Proyectos",
+      "settings": "Configuración",
+      "terms": "Términos de servicio",
+      "unsubscribe": "Cancelar suscripción",
+      "users": "Usuarios",
+      "uses": "Usos",
+      "star": "Estrella",
+      "youtube": "YouTube",
+      "publications": "Publicaciones",
+      "resume": "Currículum",
+      "lifeevents": "Eventos de vida",
+      "bucketlist": "Lista de deseos",
+      "changelog": "Registro de cambios",
+      "connections": "Conexiones",
+      "terms-of-service": "Términos de servicio",
+      "privacy-policy": "Política de privacidad"
+    },
+    "like": "Me gusta",
+    "likes": "{count, plural, =1 {# me gusta} other {# me gustas}}",
+    "save": "Guardar",
+    "sign-in": "Iniciar sesión",
+    "sign-out": "Cerrar sesión",
+    "unknown": "Desconocido",
+    "views": "{count, plural, =1 {# vista} other {# vistas}}"
+  },
+  "components": {
+    "filtered-posts": {
+      "no-posts-found": "No se encontraron publicaciones",
+      "placeholder": "Buscar artículos"
+    },
+    "go-to-homepage": "Ir a la página de inicio"
+  },
+  "dashboard": {
+    "description": "Este es mi panel personal, construido con rutas API de Next.js implementadas como funciones serverless. Uso este panel para rastrear varias estadísticas en plataformas como YouTube, GitHub y más.",
+    "stat": {
+      "blog-total-likes": "Me gustas totales del blog",
+      "blog-total-views": "Vistas totales del blog",
+      "coding-hours": "Horas de programación",
+      "github-followers": "Seguidores de GitHub",
+      "github-stars": "Estrellas de GitHub",
+      "youtube-subscribers": "Suscriptores de YouTube",
+      "youtube-views": "Vistas de YouTube"
+    }
+  },
+  "dialog": {
+    "sign-in": {
+      "continue-with": "Continuar con {provider}",
+      "description": "para continuar a nikhil.dev",
+      "last-used": "Último uso",
+      "notice": "Al continuar, aceptas nuestros <terms>Términos de servicio</terms> y <privacy>Política de privacidad</privacy>"
+    }
+  },
+  "error": {
+    "avatar-too-large": "El archivo de avatar es demasiado grande. Por favor, elige un archivo más pequeño de {size} MB.",
+    "avatar-unsupported-file": "Por favor, elige un tipo de imagen compatible (JPEG, PNG, WEBP, GIF, AVIF).",
+    "comment-cannot-be-empty": "El comentario no puede estar vacío",
+    "copy-to-clipboard-error": "No se pudo copiar al portapapeles. Por favor, inténtalo de nuevo.",
+    "failed-to-fetch-comments-data": "Error al obtener datos de comentarios. Por favor, actualiza la página.",
+    "failed-to-fetch-users-data": "Error al obtener datos de usuarios. Por favor, actualiza la página.",
+    "failed-to-load": "Error al cargar.",
+    "failed-to-load-comments": "Error al cargar comentarios. Por favor, actualiza la página.",
+    "failed-to-load-messages": "Error al cargar mensajes. Por favor, actualiza la página.",
+    "failed-to-load-replies": "Error al cargar respuestas. Por favor, actualiza la página.",
+    "like-limit-reached": "Solo puedes dar me gusta 3 veces por publicación",
+    "message-cannot-be-empty": "El mensaje no puede estar vacío",
+    "name-cannot-be-empty": "El nombre no puede estar vacío",
+    "name-too-long": "El nombre es demasiado largo",
+    "need-logged-in-to-vote": "Necesitas iniciar sesión para votar comentarios",
+    "not-found": "Página no encontrada.",
+    "now-playing-error": "Error al obtener datos de Spotify",
+    "reply-cannot-be-empty": "La respuesta no puede estar vacía",
+    "sign-in-error": "Error al iniciar sesión. Por favor, inténtalo de nuevo.",
+    "sign-out-failed": "Error al cerrar sesión. Por favor, inténtalo de nuevo.",
+    "something-went-wrong": "Algo salió mal. Por favor, inténtalo de nuevo.",
+    "update-avatar-failed": "Error al actualizar el avatar. Por favor, inténtalo de nuevo.",
+    "try-again": "Intentar de nuevo"
+  },
+  "guestbook": {
+    "description": "Firma mi libro de visitas y comparte tu idea. ¡Puedes decirme cualquier cosa aquí!",
+    "no-messages": "No hay mensajes. ¡Sé el primero en dejar un mensaje!",
+    "pinned": {
+      "description": "Gracias por visitar mi sitio web. Si tienes un momento, me encantaría escuchar tus pensamientos sobre mi trabajo. Por favor, inicia sesión con tu cuenta para dejar un comentario. ¡Gracias!",
+      "greeting": "¡Hola! 👋"
+    },
+    "placeholder": "Deja un mensaje",
+    "signin": {
+      "description": "para dejar un mensaje"
+    },
+    "submit": "Enviar"
+  },
+  "homepage": {
+    "about-me": {
+      "coding-hours": "Horas de programación",
+      "connect": "Conectar",
+      "fav-framework": "Framework favorito",
+      "location": "EE. UU.",
+      "more": "Saber más sobre mí",
+      "stacks": "Tecnologías",
+      "title": "Sobre Mí"
+    },
+    "get-in-touch": {
+      "description": "¡No dudes en contactarme!",
+      "image-alt": "Logo de Nikhil",
+      "title": "¿Alguna pregunta sobre Next.js?"
+    },
+    "hero": {
+      "amazing": "Increíble",
+      "attractive": "Atractivo",
+      "fantastic": "Fantástico",
+      "location-timezone": "EE. UU. • UTC/GMT +8",
+      "stunning": "Impresionante",
+      "title-bottom": "React",
+      "title-middle-left": "construyendo",
+      "title-middle-right": "sitios web usando",
+      "title-top": "Soy Nikhil, un Ingeniero de Software"
+    },
+    "latest-articles": {
+      "card": "Artículo",
+      "more": "Ver todos los artículos",
+      "title": "Artículos Recientes"
+    },
+    "selected-projects": {
+      "card": "Proyecto",
+      "more": "Ver todos los proyectos",
+      "title": "Proyectos Seleccionados"
+    }
+  },
+  "layout": {
+    "change-language": "Cambiar idioma",
+    "now-playing": {
+      "loading": "Cargando...",
+      "not-listening": "No escuchando - Spotify"
+    },
+    "skip-to-main-content": "Saltar al contenido principal",
+    "toggle-menu": "Alternar menú"
+  },
+  "mdx": {
+    "link-to-section": "Enlace a sección"
+  },
+  "metadata": {
+    "site-description": "Nikhil es un ingeniero full stack. Construye sitios web performantes y elegantes usando React, Node.js y tecnologías modernas."
+  },
+  "privacy": {
+    "description": "Esta página explica cómo manejamos tus datos y protegemos tu privacidad cuando usas nuestro sitio web."
+  },
+  "projects": {
+    "description": "Una colección de mis proyectos, elaborados con dedicación.",
+    "visit-website": "Visitar sitio web"
+  },
+  "settings": {
+    "description": "Gestiona tu configuración.",
+    "notification-settings": "Configuración de notificaciones",
+    "reply-notification": "Notificación de respuesta",
+    "reply-notification-description": "Recibe notificaciones por correo electrónico cuando alguien responda a tu comentario."
+  },
+  "success": {
+    "avatar-updated": "Avatar actualizado exitosamente",
+    "comment-deleted": "Comentario eliminado",
+    "comment-posted": "Comentario publicado",
+    "copied-to-clipboard": "Copiado al portapapeles",
+    "link-copied": "Enlace copiado al portapapeles",
+    "message-created": "Mensaje creado exitosamente",
+    "message-deleted": "Mensaje eliminado exitosamente",
+    "name-updated": "Nombre para mostrar actualizado exitosamente",
+    "reply-posted": "Respuesta publicada",
+    "session-revoked": "Sesión revocada exitosamente",
+    "settings-saved": "Configuración guardada exitosamente",
+    "signed-out": "Sesión cerrada exitosamente"
+  },
+  "terms": {
+    "description": "Estos términos y condiciones describen las reglas y regulaciones para el uso de nuestro sitio web."
+  },
+  "theme-toggle": {
+    "options": {
+      "dark": "Oscuro",
+      "light": "Claro",
+      "system": "Sistema"
+    },
+    "toggle-theme": "Alternar tema"
+  },
+  "unsubscribe": {
+    "invalid-link-description": "El enlace de cancelación de suscripción no es válido. Por favor, inténtalo de nuevo.",
+    "invalid-unsubscribe-link": "Enlace de cancelación de suscripción no válido",
+    "stop-receiving-email-notifications": "Dejar de recibir notificaciones por correo electrónico para respuestas a este comentario",
+    "unsubscribe-from-this-comment": "Cancelar suscripción de este comentario",
+    "unsubscribed-description": "Ya no recibirás correos electrónicos de notificación de respuestas para este comentario.",
+    "you-are-unsubscribing-as": "Estás cancelando la suscripción como {email}",
+    "you-have-been-unsubscribed": "Has sido dado de baja"
+  },
+  "uses": {
+    "description": "Este es el equipo que uso actualmente para juegos, programación, hacer videos y todos los días."
+  },
+  "social": {
+    "links": {
+      "github": {
+        "name": "GitHub",
+        "description": "Mira mi código y proyectos"
+      },
+      "linkedin": {
+        "name": "LinkedIn",
+        "description": "Red profesional"
+      },
+      "twitter": {
+        "name": "Twitter",
+        "description": "Sígueme para actualizaciones"
+      },
+      "mastodon": {
+        "name": "Mastodon",
+        "description": "Conecta en Mastodon"
+      },
+      "bluesky": {
+        "name": "Bluesky",
+        "description": "Conecta en Bluesky"
+      },
+      "codepen": {
+        "name": "CodePen",
+        "description": "Mira mis fragmentos de código"
+      },
+      "buymeacoffee": {
+        "name": "Buy Me a Coffee",
+        "description": "Apoya mi trabajo"
+      }
+    }
+  }
+}

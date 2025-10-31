@@ -1,6 +1,6 @@
 {
   "about": {
-    "description": "Hi! I'm Nelson Lai, a passionate web development student creating innovative projects with HTML, CSS, and JavaScript. Explore my portfolio, skills, and journey in building user-friendly apps. Let's connect!"
+    "description": "Hi! I'm Nikhil, a passionate web development student creating innovative projects with HTML, CSS, and JavaScript. Explore my portfolio, skills, and journey in building user-friendly apps. Let's connect!"
   },
   "account": {
     "account-created": "Account created",
@@ -51,7 +51,7 @@
       "toggle-strikethrough": "Toggle strikethrough",
       "write": "Write"
     },
-    "description": "Discover my website and blog, where I share tutorials, notes, and experiences as a full-stack engineer based in Hong Kong. I began web dev as a hobby in Dec 2020. Explore my journey!",
+    "description": "Discover my website and blog, where I share tutorials, notes, and experiences as a Software engineer based in USA. I began web dev as a hobby in August 2017. Explore my journey!",
     "footer": {
       "edit-on-github": "Edit on GitHub",
       "last-updated": "Last updated: {date}"
@@ -107,6 +107,7 @@
       "unsubscribe": "Unsubscribe",
       "users": "Users",
       "uses": "Uses",
+      "star": "Star",
       "youtube": "YouTube",
       "publications": "Publications",
       "resume": "Resume",
@@ -147,7 +148,7 @@
   "dialog": {
     "sign-in": {
       "continue-with": "Continue with {provider}",
-      "description": "to continue to nelsonlai.dev",
+      "description": "to continue to nikhil.dev",
       "last-used": "Last used",
       "notice": "By continuing, you agree to our <terms>Terms of Service</terms> and <privacy>Privacy Policy</privacy>"
     }
@@ -209,12 +210,12 @@
       "amazing": "Amazing",
       "attractive": "Attractive",
       "fantastic": "Fantastic",
-      "location-timezone": "Hong Kong • UTC/GMT +8",
+      "location-timezone": "USA • UTC/GMT +8",
       "stunning": "Stunning",
       "title-bottom": "React",
       "title-middle-left": "building",
       "title-middle-right": "websites using",
-      "title-top": "I'm Nelson, a Full Stack Engineer"
+      "title-top": "I'm Nikhil, a Software Engineer"
     },
     "latest-articles": {
       "card": "Article",
@@ -240,7 +241,7 @@
     "link-to-section": "Link to section"
   },
   "metadata": {
-    "site-description": "Nelson Lai is a full stack engineer based in Hong Kong. He builds performant and elegant websites using React, Node.js, and modern technologies."
+    "site-description": "Nikhil is a software engineer based in USA. He builds performant and elegant websites using React, Node.js, and modern technologies."
   },
   "privacy": {
     "description": "This page explains how we handle your data and protect your privacy when you use our website."
@@ -291,5 +292,37 @@
   },
   "uses": {
     "description": "This is the equipment I currently use for gaming, programming, making videos, and every day."
+  },
+  "social": {
+    "links": {
+      "github": {
+        "name": "GitHub",
+        "description": "Check out my code and projects"
+      },
+      "linkedin": {
+        "name": "LinkedIn",
+        "description": "Professional network"
+      },
+      "twitter": {
+        "name": "Twitter",
+        "description": "Follow me for updates"
+      },
+      "mastodon": {
+        "name": "Mastodon",
+        "description": "Connect on Mastodon"
+      },
+      "bluesky": {
+        "name": "Bluesky",
+        "description": "Connect on Bluesky"
+      },
+      "codepen": {
+        "name": "CodePen",
+        "description": "Check out my code snippets"
+      },
+      "buymeacoffee": {
+        "name": "Buy Me a Coffee",
+        "description": "Support my work"
+      }
+    }
   }
 }
