@@ -60,7 +60,7 @@ export const FOOTER_LINKS: FooterLinks = [
     links: [
       { href: '/', labelKey: 'common.labels.home' },
       { href: '/about', labelKey: 'common.labels.about' },
-      { href: '/life-events', labelKey: 'common.labels.lifeevents' },
+      { href: '/lifeevents', labelKey: 'common.labels.lifeevents' },
       { href: '/bucketlist', labelKey: 'common.labels.bucketlist' }
     ]
   },
